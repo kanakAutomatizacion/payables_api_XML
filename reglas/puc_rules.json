@@ -1,0 +1,323 @@
+{
+  "510503": {
+    "descripcion": "Salario integral",
+    "palabras_clave": ["salario", "integral", "nómina", "sueldo completo"]
+  },
+  "510506": {
+    "descripcion": "Sueldos",
+    "palabras_clave": ["sueldo", "pago mensual", "empleados", "nómina"]
+  },
+  "510512": {
+    "descripcion": "Jornales",
+    "palabras_clave": ["jornal", "jornalero", "obrero", "día trabajado"]
+  },
+  "510515": {
+    "descripcion": "Horas extras y recargos",
+    "palabras_clave": ["horas extra", "dominical", "nocturno", "recargo"]
+  },
+  "510518": {
+    "descripcion": "Comisiones",
+    "palabras_clave": ["comisión", "incentivo", "ventas"]
+  },
+  "510521": {
+    "descripcion": "Viáticos",
+    "palabras_clave": ["viaje", "hotel", "alimentación", "desplazamiento"]
+  },
+  "510524": {
+    "descripcion": "Incapacidades",
+    "palabras_clave": ["incapacidad", "médica", "EPS"]
+  },
+  "510527": {
+    "descripcion": "Auxilio de transporte",
+    "palabras_clave": ["transporte", "auxilio", "movilización"]
+  },
+  "510530": {
+    "descripcion": "Cesantías",
+    "palabras_clave": ["cesantías", "liquidación anual"]
+  },
+  "510533": {
+    "descripcion": "Intereses sobre cesantías",
+    "palabras_clave": ["intereses", "cesantías"]
+  },
+  "510536": {
+    "descripcion": "Prima de servicios",
+    "palabras_clave": ["prima", "semestral"]
+  },
+  "510539": {
+    "descripcion": "Vacaciones",
+    "palabras_clave": ["vacaciones", "descanso", "compensación"]
+  },
+  "510542": {
+    "descripcion": "Primas extralegales",
+    "palabras_clave": ["prima", "bonificación", "especial"]
+  },
+  "510545": {
+    "descripcion": "Auxilios",
+    "palabras_clave": ["auxilio", "subsidio"]
+  },
+  "510548": {
+    "descripcion": "Bonificaciones",
+    "palabras_clave": ["bonificación", "incentivo", "extra"]
+  },
+  "510551": {
+    "descripcion": "Dotación y suministro a trabajadores",
+    "palabras_clave": ["dotación", "uniforme", "botas", "ropa"]
+  },
+  "510554": {
+    "descripcion": "Seguros",
+    "palabras_clave": ["seguro", "póliza", "vida", "salud"]
+  },
+  "510563": {
+    "descripcion": "Capacitación al personal",
+    "palabras_clave": ["capacitación", "curso", "formación"]
+  },
+  "510568": {
+    "descripcion": "Aportes a administradoras de riesgos profesionales ARP",
+    "palabras_clave": ["ARL", "riesgos", "seguridad laboral"]
+  },
+  "510569": {
+    "descripcion": "Aportes a entidades promotoras de salud EPS",
+    "palabras_clave": ["EPS", "salud", "cotización"]
+  },
+  "510570": {
+    "descripcion": "Aportes a fondos de pensiones y/o cesantías",
+    "palabras_clave": ["pensión", "fondo", "retiro"]
+  },
+  "510572": {
+    "descripcion": "Aportes cajas de compensación familiar",
+    "palabras_clave": ["caja compensación", "colsubsidio", "comfama"]
+  },
+  "510575": {
+    "descripcion": "Aportes ICBF",
+    "palabras_clave": ["ICBF", "bienestar familiar"]
+  },
+  "510578": {
+    "descripcion": "SENA",
+    "palabras_clave": ["SENA", "formación técnica"]
+  },
+  "510584": {
+    "descripcion": "Gastos médicos y drogas",
+    "palabras_clave": ["medicina", "salud", "medicamentos"]
+  },
+  "511005": {
+    "descripcion": "Junta directiva",
+    "palabras_clave": ["junta", "directiva", "sesión"]
+  },
+  "511010": {
+    "descripcion": "Revisoría fiscal",
+    "palabras_clave": ["revisoría", "fiscal", "contaduría"]
+  },
+  "511015": {
+    "descripcion": "Auditoría externa",
+    "palabras_clave": ["auditoría", "revisión", "estados financieros"]
+  },
+  "511020": {
+    "descripcion": "Avalúos",
+    "palabras_clave": ["avalúo", "valoración", "inmueble"]
+  },
+  "511025": {
+    "descripcion": "Asesoría jurídica",
+    "palabras_clave": ["abogado", "jurídico", "demanda"]
+  },
+  "511030": {
+    "descripcion": "Asesoría financiera",
+    "palabras_clave": ["finanzas", "inversión", "asesoría contable"]
+  },
+  "511035": {
+    "descripcion": "Asesoría técnica",
+    "palabras_clave": ["técnico", "soporte", "ingeniería"]
+  },
+  "511505": {
+    "descripcion": "Industria y comercio",
+    "palabras_clave": ["ICA", "industria", "comercio"]
+  },
+  "511515": {
+    "descripcion": "A la propiedad raíz",
+    "palabras_clave": ["predial", "inmueble", "terreno"]
+  },
+  "511540": {
+    "descripcion": "De vehículos",
+    "palabras_clave": ["vehículo", "carro", "moto", "transporte"]
+  },
+  "511570": {
+    "descripcion": "IVA descontable",
+    "palabras_clave": ["IVA", "impuesto", "compras"]
+  },
+  "512010": {
+    "descripcion": "Construcciones y edificaciones",
+    "palabras_clave": ["arriendo", "oficina", "local"]
+  },
+  "512020": {
+    "descripcion": "Equipo de oficina",
+    "palabras_clave": ["arriendo", "computador", "impresora"]
+  },
+  "512040": {
+    "descripcion": "Flota y equipo de transporte",
+    "palabras_clave": ["arriendo", "vehículo", "camión"]
+  },
+  "512095": {
+    "descripcion": "Otros",
+    "palabras_clave": ["alquiler", "arrendamiento"]
+  },
+  "513025": {
+    "descripcion": "Incendio",
+    "palabras_clave": ["seguro incendio", "edificio"]
+  },
+  "513035": {
+    "descripcion": "Sustracción y hurto",
+    "palabras_clave": ["robo", "hurto", "pérdida"]
+  },
+  "513060": {
+    "descripcion": "Responsabilidad civil y extracontractual",
+    "palabras_clave": ["civil", "accidente", "tercero"]
+  },
+  "513075": {
+    "descripcion": "Obligatorio accidente de tránsito",
+    "palabras_clave": ["SOAT", "tránsito", "vehículo"]
+  },
+  "513085": {
+    "descripcion": "Transporte de mercancía",
+    "palabras_clave": ["seguro carga", "transporte"]
+  },
+  "513505": {
+    "descripcion": "Aseo y vigilancia",
+    "palabras_clave": ["aseo", "limpieza", "seguridad", "vigilancia"]
+  },
+  "513520": {
+    "descripcion": "Procesamiento electrónico de datos",
+    "palabras_clave": ["software", "sistemas", "computación"]
+  },
+  "513525": {
+    "descripcion": "Acueducto y alcantarillado",
+    "palabras_clave": ["agua", "servicio público"]
+  },
+  "513530": {
+    "descripcion": "Energía eléctrica",
+    "palabras_clave": ["energía", "luz", "electricidad"]
+  },
+  "513535": {
+    "descripcion": "Teléfono",
+    "palabras_clave": ["teléfono", "celular", "línea"]
+  },
+  "513550": {
+    "descripcion": "Transporte fletes y acarreos",
+    "palabras_clave": ["transporte", "envío", "flete", "mensajería"]
+  },
+  "514510": {
+    "descripcion": "Construcciones y edificaciones",
+    "palabras_clave": ["reparación", "pintura", "remodelación"]
+  },
+  "514520": {
+    "descripcion": "Equipo de oficina",
+    "palabras_clave": ["mantenimiento", "impresora", "computador"]
+  },
+  "514540": {
+    "descripcion": "Flota y equipo de transporte",
+    "palabras_clave": ["vehículo", "reparación", "repuesto"]
+  },
+  "514570": {
+    "descripcion": "Vías de comunicación",
+    "palabras_clave": ["carretera", "pavimento", "vía"]
+  },
+  "515505": {
+    "descripcion": "Alojamiento y manutención",
+    "palabras_clave": ["hotel", "hospedaje", "comida"]
+  },
+  "515515": {
+    "descripcion": "Pasajes aéreos",
+    "palabras_clave": ["vuelo", "avión", "aerolínea"]
+  },
+  "515520": {
+    "descripcion": "Pasajes terrestres",
+    "palabras_clave": ["bus", "taxi", "transporte"]
+  },
+  "519525": {
+    "descripcion": "Elementos de aseo y cafetería",
+    "palabras_clave": ["jabón", "café", "limpieza"]
+  },
+  "519530": {
+    "descripcion": "Útiles papelería y fotocopias",
+    "palabras_clave": ["papel", "bolígrafo", "impresión"]
+  },
+  "519535": {
+    "descripcion": "Combustibles y lubricantes",
+    "palabras_clave": ["gasolina", "ACPM", "aceite"]
+  },
+  "519560": {
+    "descripcion": "Casino y restaurante",
+    "palabras_clave": ["comida", "almuerzo", "restaurante"]
+  },
+  "519565": {
+    "descripcion": "Parqueaderos",
+    "palabras_clave": ["parqueadero", "estacionamiento"]
+  },
+  "523530": {
+    "descripcion": "Energía eléctrica",
+    "palabras_clave": ["luz", "energía"]
+  },
+  "523535": {
+    "descripcion": "Teléfono",
+    "palabras_clave": ["teléfono", "celular"]
+  },
+  "523540": {
+    "descripcion": "Correo portes y telegramas",
+    "palabras_clave": ["envío", "mensajería"]
+  },
+  "523550": {
+    "descripcion": "Transporte fletes y acarreos",
+    "palabras_clave": ["transporte", "flete"]
+  },
+  "523560": {
+    "descripcion": "Publicidad propaganda y promoción",
+    "palabras_clave": ["publicidad", "marketing", "anuncio", "redes"]
+  },
+  "529530": {
+    "descripcion": "Útiles papelería y fotocopias",
+    "palabras_clave": ["papelería", "impresión"]
+  },
+  "529535": {
+    "descripcion": "Combustibles y lubricantes",
+    "palabras_clave": ["gasolina", "diésel"]
+  },
+  "529540": {
+    "descripcion": "Envases y empaques",
+    "palabras_clave": ["empaque", "bolsa", "caja"]
+  },
+  "529560": {
+    "descripcion": "Casino y restaurante",
+    "palabras_clave": ["comida", "restaurante", "refrigerio"]
+  },
+  "530505": {
+    "descripcion": "Gastos bancarios",
+    "palabras_clave": ["banco", "comisión", "cuenta"]
+  },
+  "530520": {
+    "descripcion": "Intereses",
+    "palabras_clave": ["interés", "préstamo", "crédito"]
+  },
+  "530525": {
+    "descripcion": "Diferencia en cambio",
+    "palabras_clave": ["dólar", "moneda extranjera"]
+  },
+  "531015": {
+    "descripcion": "Venta de propiedades planta y equipo",
+    "palabras_clave": ["venta activo", "maquinaria", "vehículo"]
+  },
+  "531040": {
+    "descripcion": "Pérdidas por siniestros",
+    "palabras_clave": ["siniestro", "pérdida", "incendio"]
+  },
+  "539510": {
+    "descripcion": "Demandas por incumplimiento de contratos",
+    "palabras_clave": ["demanda", "multa", "incumplimiento"]
+  },
+  "539520": {
+    "descripcion": "Multas sanciones y litigios",
+    "palabras_clave": ["multa", "sanción", "demanda"]
+  },
+  "539525": {
+    "descripcion": "Donaciones",
+    "palabras_clave": ["donación", "aporte", "beneficencia"]
+  }
+}
+
