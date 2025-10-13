@@ -28,7 +28,7 @@ async def asignar_cuenta(data: DatosEntrada):
 
     for item in items:
         cuenta = obtener_cuenta_contable(
-            item.dict(),
+            item.model_dump(),
             factura.Nit_Vendedor,
             reglas_nit,
             reglas_puc
