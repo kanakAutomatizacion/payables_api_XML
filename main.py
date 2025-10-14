@@ -29,12 +29,32 @@ async def asignar_cuenta(data: DatosEntrada):
             reglas_nit,
             reglas_puc
         )
-        resultados.append({
-            "Descripcion_Item": item.Descripcion_Item,
-            "Cuenta_Contable": cuenta
-        })
+        item_resultado = item.model_dump()
+        item_resultado["Cuenta_Contable"] = cuenta
+        resultados.append(item_resultado)
 
-    return {"items": resultados}
+    # Retornar todo el JSON original, pero con items actualizados
+    return {
+        "factura": factura.model_dump(),
+        "items": resultados
+    }
+
+@app.post("/reload_reglas/")
+async def reload_rules(x_api_key: str = Header(None)):
+    """
+    Recarga las reglas desde los archivos JSON (requiere API key).
+    """
+    if x_api_key != "mi_clave_secreta":
+        raise HTTPException(status_code=401, detail="Acceso no autorizado")
+
+    global reglas_nit, reglas_puc
+    reglas_nit, reglas_puc = recargar_reglas()
+
+    return {
+        "mensaje": "Reglas recargadas correctamente",
+        "total_nit": len(reglas_nit),
+        "total_puc": len(reglas_puc)
+    }
 
 @app.post("/reload_reglas/")
 async def reload_rules(x_api_key: str = Header(None)):
