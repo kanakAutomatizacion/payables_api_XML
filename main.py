@@ -20,7 +20,6 @@ async def asignar_cuenta(data: DatosEntrada):
     """
     factura = data.factura
     items = data.items
-    resultados = []
 
     for item in items:
         cuenta = obtener_cuenta_contable(
@@ -29,14 +28,10 @@ async def asignar_cuenta(data: DatosEntrada):
             reglas_nit,
             reglas_puc
         )
-        item_resultado = item.model_dump()
-        item_resultado["Cuenta_Contable"] = cuenta
-        resultados.append(item_resultado)
-
-    # Retornar todo el JSON original, pero con items actualizados
+        item.cuentacontable = cuenta 
     return {
         "factura": factura.model_dump(),
-        "items": resultados
+        "items": [item.model_dump() for item in items]
     }
 
 @app.post("/reload_reglas/")
