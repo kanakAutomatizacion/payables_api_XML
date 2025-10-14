@@ -4,11 +4,7 @@ from services.reglas_service import cargar_reglas, recargar_reglas
 from services.cuenta_contable import obtener_cuenta_contable
 
 # Inicializar la app
-app = FastAPI(
-    title="Payablea API",
-    description="API para asignar cuentas contables según reglas NIT y PUC",
-    version="1.0.0"
-)
+app = FastAPI()
 
 # Cargar reglas al iniciar la API
 reglas_nit, reglas_puc = cargar_reglas()
