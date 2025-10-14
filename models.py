@@ -36,4 +36,4 @@ class DatosEntrada(BaseModel):
     items: List[Item]
 
     class Config:
-        extra = "allow"  # 🔥 permite conservar cualquier campo adicional no definido
+        extra = "allow"  # 🔥 permite cddddonservar cualquier campo adicional no definido
