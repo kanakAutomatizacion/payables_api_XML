@@ -1,0 +1,34 @@
+{
+    "factura": {
+        "N_Documento": "DC15762653",
+        "CUFE": "70022eca86ad1ded9c9ee0ab4dabf69665666b0a2aa69f5f95321b915794c7d3d145c698519c8b630e4ff1b81396743f",
+        "Fecha_Documento": "2025-10-15",
+        "Nombre_Vendedor": "EXPERIAN COLOMBIA S.A.",
+        "Nit_Vendedor": "900422614",
+        "Correo_Vendedor": "FacturasColombia@experian.com",
+        "Direccion_Vendedor": "",
+        "Codigo_Ciudad_Vendedor": "11001",
+        "Telefono_Vendedor": "",
+        "Contacto_Vendedor": "",
+        "Monto_Total": "17815.00",
+        "Monto_Sin_Impuestos": "17815.00",
+        "Monto_Con_Impuestos": "21199.85",
+        "Monto_Pagar": "21199.85",
+        "Nombre_Comprador": "CARRASQUEL NIKOLE",
+        "Nit_Comprador": "2429043",
+        "Moneda_Documento": "COP",
+        "Cantidad_Items": "1"
+    },
+    "items": [
+        {
+            "Id_Item": "1",
+            "Cantidad_Item": "1",
+            "Monto1_Item": "17815.00",
+            "Monto2_Item": "17815.00",
+            "MontoBase_Item": "1.00",
+            "Descripcion_Item": "PERFIL DE CREDITO MENSUAL",
+            "cuentacontable": "51999999",
+            "keycontable": "2429043_900422614_PERFIL DE CREDITO MENSUAL"
+        }
+    ]
+}
