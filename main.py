@@ -6,71 +6,69 @@ from services.cuenta_contable import obtener_cuenta_contable
 
 app = FastAPI()
 
-# Cargar reglas al iniciar
 reglas_nit, reglas_puc = cargar_reglas()
 
 def detectar_namespaces(xml_str):
-    """
-    Extrae todos los namespaces (prefijos -> URI) de un XML como diccionario.
-    """
     pattern = re.compile(r'xmlns:([a-zA-Z0-9]+)="([^"]+)"')
-    return dict(pattern.findall(xml_str))
+    nsmap = dict(pattern.findall(xml_str))
+    if None not in nsmap.values():
+        nsmap.setdefault("cbc", "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")
+        nsmap.setdefault("cac", "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")
+    return nsmap
 
+def buscar_texto(root, rutas, nsmap):
+    for ruta in rutas:
+        valor = root.findtext(ruta, namespaces=nsmap)
+        if valor:
+            return valor.strip()
+    return ""
 
 @app.post("/cuenta_contable_xml/")
 async def cuenta_contable_xml(xml_data: str = Body(..., media_type="application/xml")):
     try:
-        xml_data = xml_data.strip()
-
-        # 🔍 Detectar automáticamente los namespaces
+        xml_data = xml_data.encode('utf-8').decode('utf-8-sig').strip()
         nsmap = detectar_namespaces(xml_data)
-        if not nsmap:
-            raise HTTPException(status_code=400, detail="No se detectaron namespaces en el XML")
-
-        # Aseguramos prefijos esperados por UBL (cbc y cac)
-        nsmap.setdefault("cbc", "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")
-        nsmap.setdefault("cac", "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")
-
         root = ET.fromstring(xml_data)
 
-        # --- FACTURA ---
         factura = {
-            "N_Documento": (root.findtext(".//cbc:ID", namespaces=nsmap) or "").strip(),
-            "CUFE": (root.findtext(".//cbc:UUID", namespaces=nsmap) or "").strip(),
-            "Fecha_Documento": (root.findtext(".//cbc:IssueDate", namespaces=nsmap) or "").strip(),
-            "Nombre_Vendedor": (root.findtext(".//cac:AccountingSupplierParty//cbc:Name", namespaces=nsmap) or "").strip(),
-            "Nit_Vendedor": (root.findtext(".//cac:AccountingSupplierParty//cbc:ID", namespaces=nsmap) or "").strip(),
-            "Correo_Vendedor": (root.findtext(".//cac:AccountingSupplierParty//cbc:ElectronicMail", namespaces=nsmap) or "").strip(),
-            "Direccion_Vendedor": (root.findtext(".//cac:AccountingSupplierParty//cbc:StreetName", namespaces=nsmap) or "").strip(),
-            "Codigo_Ciudad_Vendedor": (root.findtext(".//cac:AccountingSupplierParty//cbc:CitySubdivisionName", namespaces=nsmap) or "").strip(),
-            "Telefono_Vendedor": (root.findtext(".//cac:AccountingSupplierParty//cbc:Telephone", namespaces=nsmap) or "").strip(),
-            "Contacto_Vendedor": (root.findtext(".//cac:AccountingSupplierParty//cac:Contact//cbc:Name", namespaces=nsmap) or "").strip(),
+            "N_Documento": buscar_texto(root, [".//cbc:ID", ".//cbc:InvoiceID"], nsmap),
+            "CUFE": buscar_texto(root, [".//cbc:UUID", ".//cbc:CUFE"], nsmap),
+            "Fecha_Documento": buscar_texto(root, [".//cbc:IssueDate"], nsmap),
+            "Nombre_Vendedor": buscar_texto(root, [".//cac:AccountingSupplierParty//cbc:Name"], nsmap),
+            "Nit_Vendedor": buscar_texto(root, [".//cac:AccountingSupplierParty//cbc:CompanyID", ".//cac:AccountingSupplierParty//cbc:ID"], nsmap),
+            "Correo_Vendedor": buscar_texto(root, [".//cac:AccountingSupplierParty//cbc:ElectronicMail"], nsmap),
+            "Direccion_Vendedor": buscar_texto(root, [".//cac:AccountingSupplierParty//cbc:StreetName"], nsmap),
+            "Codigo_Ciudad_Vendedor": buscar_texto(root, [".//cac:AccountingSupplierParty//cbc:CitySubdivisionName"], nsmap),
+            "Telefono_Vendedor": buscar_texto(root, [".//cac:AccountingSupplierParty//cbc:Telephone"], nsmap),
+            "Contacto_Vendedor": buscar_texto(root, [".//cac:AccountingSupplierParty//cac:Contact//cbc:Name"], nsmap),
             "Cantidad_Items": str(len(root.findall(".//cac:InvoiceLine", namespaces=nsmap))),
-            "Monto_Total": (root.findtext(".//cbc:LineExtensionAmount", namespaces=nsmap) or "").strip(),
-            "Monto_Sin_Impuestos": (root.findtext(".//cbc:TaxExclusiveAmount", namespaces=nsmap) or "").strip(),
-            "Monto_Con_Impuestos": (root.findtext(".//cbc:TaxInclusiveAmount", namespaces=nsmap) or "").strip(),
-            "Monto_Pagar": (root.findtext(".//cbc:PayableAmount", namespaces=nsmap) or "").strip(),
-            "Nombre_Comprador": (root.findtext(".//cac:AccountingCustomerParty//cbc:Name", namespaces=nsmap) or "").strip(),
-            "Nit_Comprador": (root.findtext(".//cac:AccountingCustomerParty//cbc:ID", namespaces=nsmap) or "").strip(),
-            "Moneda_Documento": (root.findtext(".//cbc:DocumentCurrencyCode", namespaces=nsmap) or "").strip()
+            "Monto_Total": buscar_texto(root, [".//cbc:LineExtensionAmount"], nsmap),
+            "Monto_Sin_Impuestos": buscar_texto(root, [".//cbc:TaxExclusiveAmount"], nsmap),
+            "Monto_Con_Impuestos": buscar_texto(root, [".//cbc:TaxInclusiveAmount"], nsmap),
+            "Monto_Pagar": buscar_texto(root, [".//cbc:PayableAmount", ".//cac:LegalMonetaryTotal//cbc:PayableAmount"], nsmap),
+            "Nombre_Comprador": buscar_texto(root, [".//cac:AccountingCustomerParty//cbc:Name"], nsmap),
+            "Nit_Comprador": buscar_texto(root, [".//cac:AccountingCustomerParty//cbc:CompanyID", ".//cac:AccountingCustomerParty//cbc:ID"], nsmap),
+            "Moneda_Documento": buscar_texto(root, [".//cbc:DocumentCurrencyCode"], nsmap)
         }
 
-        # --- ITEMS ---
         items = []
         for item in root.findall(".//cac:InvoiceLine", namespaces=nsmap):
-            descripcion = (item.findtext(".//cbc:Description", namespaces=nsmap) or "").strip()
-            id_item = (item.findtext(".//cbc:ID", namespaces=nsmap) or "").strip()
-            cantidad = (item.findtext(".//cbc:InvoicedQuantity", namespaces=nsmap) or "").strip()
-            monto1 = (item.findtext(".//cbc:LineExtensionAmount", namespaces=nsmap) or "").strip()
-            monto2 = (item.findtext(".//cbc:PriceAmount", namespaces=nsmap) or "").strip()
-            monto_base = (item.findtext(".//cbc:BaseQuantity", namespaces=nsmap) or "").strip()
+            descripcion = buscar_texto(item, [".//cbc:Description"], nsmap)
+            id_item = buscar_texto(item, [".//cbc:ID"], nsmap)
+            cantidad = buscar_texto(item, [".//cbc:InvoicedQuantity"], nsmap)
+            monto1 = buscar_texto(item, [".//cbc:LineExtensionAmount"], nsmap)
+            monto2 = buscar_texto(item, [".//cbc:PriceAmount"], nsmap)
+            monto_base = buscar_texto(item, [".//cbc:BaseQuantity"], nsmap)
 
-            cuenta = obtener_cuenta_contable(
-                {"Descripcion_Item": descripcion},
-                factura["Nit_Vendedor"],
-                reglas_nit,
-                reglas_puc
-            )
+            try:
+                cuenta = obtener_cuenta_contable(
+                    {"Descripcion_Item": descripcion},
+                    factura["Nit_Vendedor"],
+                    reglas_nit,
+                    reglas_puc
+                )
+            except Exception:
+                cuenta = "No encontrada"
 
             keycontable = f"{factura['Nit_Comprador']}_{factura['Nit_Vendedor']}_{descripcion}"
 
