@@ -1,7 +1,7 @@
 import requests
 
 # 🔹 URL de tu API local o desplegada
-url = "http://127.0.0.1:8000/cuenta_contable_xml/"  # cambia el puerto si usas Render u otro
+url = "http://127.0.0.1:8000/cuenta_contable_xml/"  # cambia si usas Render
 
 # 🔹 Cargar el XML de prueba
 xml_data = """<?xml version="1.0" encoding="UTF-8"?>
